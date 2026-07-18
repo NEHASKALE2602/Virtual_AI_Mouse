@@ -104,6 +104,7 @@ class CameraPage(QWidget):
         self.cameraThread.handChanged.connect(self.updateHands)
 
         self.cameraThread.confidenceChanged.connect(self.updateConfidence)
+        self.cameraThread.gestureChanged.connect(self.updateGesture)
 
         leftLayout.addWidget(self.startButton)
 
@@ -294,3 +295,6 @@ class CameraPage(QWidget):
     def updateConfidence(self, confidence):
 
         self.aiLabel.setText(f"AI Confidence : {confidence}%")
+    def updateGesture(self, gesture):
+
+        self.gestureLabel.setText(f"Gesture : {gesture}")
